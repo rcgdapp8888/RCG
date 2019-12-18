@@ -3,8 +3,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // 服务主机
-//const _apphost = 'localhost:1128';              // 本是
-const _apphost = 'dapp191128.uqitest.com';        // 测试服
+const _apphost = 'localhost:1128';              // 本是
+//const _apphost = 'dapp191128.uqitest.com';        // 测试服
 
 const _http = 'http';                           // 协议
 const _appServer = _http + '://' + _apphost;    // 
@@ -19,6 +19,9 @@ var config = {
     netCheck: false,                            // 网络检查是否通过
 
     ticketSybmol: 'RCG',                         // 
+
+    minTokenEther: 0.1,                         // 最小令牌起购量: ? ETH
+    minBuyEther: 1,                             // 最小参与数量: ? ETH
 
     tokenPrice: 10,                             // 每1ETH可购买令牌数量
     tokenBurn: 1,                               // 入金1ETH需要令牌数量
@@ -35,14 +38,14 @@ var config = {
 
     delayReload: 10*1000,                       // 数据重载间隔，秒
 
-    language: '',                               // 默认语言
+    language: store.get('language'),            // 默认语言
     lang_arr: [],
     lang_tip: [],
 
     urls: {
         userInfo: _appServer + '/app/dapp/userinfo',
         buyToken: _appServer + '/app/dapp/buytoken',
-        checkJoin: _appServer + '/app/dapp/checkjoin',
+        joinCheck: _appServer + '/app/dapp/joincheck',
         joinNow: _appServer + '/app/dapp/joinnow',
     }
 };

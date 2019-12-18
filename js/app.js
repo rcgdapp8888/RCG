@@ -23,16 +23,16 @@ $(function () {
         }
 
         if (!config.language) {
-            config.lang_arr = lang_cn;
+            config.lang_arr = language_cn;
             config.lang_tip = tipl_language_cn;
         }
         else {
             try {
-                config.lang_arr = eval(language);
-                config.lang_tip = eval('tipl_' + language);
+                config.lang_arr = eval(config.language);
+                config.lang_tip = eval('tipl_' + config.language);
             } catch (err) {
-                config.lang_arr = language_cn;
-                config.lang_tip = tipl_language_cn;
+                config.lang_arr = config.language_cn;
+                config.lang_tip = config.tipl_language_cn;
             }
         }
 
@@ -54,10 +54,10 @@ $(function () {
         $('#amount').val($(this).data("value"));
     });
 
-    function gettip(res) {
-        var v = res.Status;
-        if (v < config.lang_tip.length)
-            return config.lang_tip[v];
+    function gettip(code) { 
+        code = code - 1000;
+        if (code < config.lang_tip.length)
+            return config.lang_tip[code];
 
         return res.Message;
     }
@@ -136,8 +136,8 @@ $(function () {
         }
         
         // 必须是0.1的倍数
-        v = v * 10;
-        if ((v - parseInt(v)) != 0) {
+        var ev = v * 10;
+        if ((ev - parseInt(ev)) != 0) {
             alertify.error(config.lang_tip[22]);
         }
 
@@ -163,14 +163,14 @@ $(function () {
             $.ajax({
                 url: config.urls.userInfo
                 , type: 'post'
-                , data: { w: config.defaultAccount, ether: etherValue, type: 'token',  hash: hash }
+                , data: { w: config.defaultAccount, ether: v, type: 'token',  hash: hash }
                 , async: true
                 , cache: false
                 , dataType: 'json'
                 , success: function (res) {
                     if (res.Status == 200) {
-                        // 
-                        alertify.error('交易发送成功'); 
+                        // 交易发送成功
+                        alertify.error(config.lang_tip[31]); 
                     } else {
                         console.log(res.Message, new Date());
                         alertify.error(gettip(res.Status));
@@ -183,12 +183,12 @@ $(function () {
         }); 
     });
 
-    // 可用令牌验证
-    function checkToken(value, callback) {
+    // 入金参与验证
+    function joinCheck(value, callback) {
         $.ajax({
-            url: config.urls.checkJoin
+            url: config.urls.joinCheck
             , type: 'post'
-            , data: { w: config.defaultAccount, value: value}
+            , data: { w: config.defaultAccount, ether: value}
             , async: true
             , cache: false
             , dataType: 'json'
@@ -245,7 +245,7 @@ $(function () {
         var etherValue = web3.utils.toWei(inputValue, 'ether');
 
         // 验证并发起支付
-        checkToken(inputValue, function () {
+        joinCheck(inputValue, function () {
 
             var obj = {
                 from: config.defaultAccount,
@@ -262,9 +262,7 @@ $(function () {
 
                 var data = {
                     w: config.defaultAccount,
-                    value: inputValue,
-                    needToken: needCount,
-                    ether: etherValue,
+                    ether: inputValue, 
                     type: 'join',
                     hash: hash
                 };
@@ -279,9 +277,9 @@ $(function () {
                     , dataType: 'json'
                     , success: function (res) {
                         if (res.Status == 200) {
-                            // 
-                            alertify.error('交易发送成功');
-                        } else { 
+                            // 交易发送成功
+                            alertify.error(config.lang_tip[31]);
+                        } else {
                             console.log(res.Message, new Date());
                             alertify.error(gettip(res.Status));
                         }
@@ -290,13 +288,13 @@ $(function () {
                         alertify.error('error: buy ticket');
                     }
                 });
-            }); 
-        })
+            });
+        });
     });
 
     // 切换语言
     $('ul.language-menu > li').click(function () {
-        store.set('language', 'lang_' + $(this).attr('data-value'));
+        store.set('language', 'language_' + $(this).attr('data-value'));
         window.location.reload();
     });
 
