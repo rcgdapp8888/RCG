@@ -3,8 +3,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // 服务主机
-const _apphost = 'localhost:1128';              // 本是
-//const _apphost = 'dapp191128.uqitest.com';        // 测试服
+//const _apphost = 'localhost:1128';              // 本是
+const _apphost = 'dapp191128.uqitest.com';        // 测试服
 
 const _http = 'http';                           // 协议
 const _appServer = _http + '://' + _apphost;    // 
