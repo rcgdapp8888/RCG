@@ -146,18 +146,6 @@
                     </h1>
                 </div>
                 <div class="hidden-lg hidden-md hidden-sm hidden-xs c-embedcode cbembe_e170897c">
-                    <script src="js/jquery.countdown.js"></script>
-                    <script>
-                        window.jQuery(function ($) {
-                            "use strict";
-                            $('.cst_countdown').countDown({
-                                with_separators: false,
-                                label_dd: "Days",
-                                label_hh: ":",
-                                label_mm: ":",
-                                label_ss: ""
-                            });
-                        });</script>
                 </div>
             </div>
         </div>
@@ -651,5 +639,18 @@
     <!--<script src="js/index.js"></script>-->
     <script src="js/config.js?v=1219"></script>
     <script src="js/app.js?v=1219"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script>
+        window.jQuery(function ($) {
+            "use strict";
+            $('.cst_countdown').countDown({
+                with_separators: false,
+                label_dd: "Days",
+                label_hh: ":",
+                label_mm: ":",
+                label_ss: ""
+            });
+        });
+    </script>
 </body>
 </html>
