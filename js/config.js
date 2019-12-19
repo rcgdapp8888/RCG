@@ -3,9 +3,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // 服务主机
-//const _apphost = 'localhost:1128';              // 本地
-//const _apphost = 'dapp191128.uqitest.com';      // 测试服
-const _apphost = 'dnb.ltd';                     // 测试服
+//const _apphost = 'localhost:1128';              // 本地 
+const _apphost = 'dnb.ltd';                     // 正式
 
 const _http = 'https';                          // 协议
 const _appServer = _http + '://' + _apphost;    // 
