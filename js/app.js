@@ -463,7 +463,7 @@ $(function () {
         config.refereeAccount = res.refereeAccount;
         config.walletAccount = res.walletAccount;
         
-        updateReferee(res.refereeAddress);
+        updateReferee(res.refereeAccount);
 
         $('.pool-share').html(res.sharePool.toFixed(8));
         $('.pool-insurance').html(res.insurancePool.toFixed(8)); 
