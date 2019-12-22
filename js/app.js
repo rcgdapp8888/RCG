@@ -468,9 +468,10 @@ $(function () {
         $('.pool-share').html(res.sharePool.toFixed(8));
         $('.pool-insurance').html(res.insurancePool.toFixed(8)); 
         $('.my-recomand-count').html(res.refereeCount);
-        $('.price-token').html(res.tokenPrice);
+        $('.price-token').html(res.tokenPrice); 
         $('.burn-token').html(res.tokenBurn);
         $('.ticket-sybmol').html(res.ticketSybmol);
+        $('.token-balance').html(res.tokenBalance);
 
         $('.pext-incomecan').html(res.incomeCan);
     }
