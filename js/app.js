@@ -235,14 +235,14 @@ $(function () {
         }
 
         // 检查令牌
-        var needCount = inputValue * config.tokenPrice; 
-        if (needCount > config.tokenBalance) {
-            alertify.error(config.lang_tip[11] + needCount + ' ');
+        var needToken = inputValue * config.tokenBurn; 
+        if (needToken > config.tokenBalance) {
+            alertify.error(config.lang_tip[11] + needToken + ' ');
             return;
         }
 
         // 支付 ETH
-        var etherValue = web3.utils.toWei(inputValue, 'ether');
+        var etherValue = web3.utils.toWei(inputValue.toString(), 'ether');
 
         // 验证并发起支付
         joinCheck(inputValue, function () {
