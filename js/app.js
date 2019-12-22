@@ -161,7 +161,7 @@ $(function () {
 
             // 发送成功，返回 交易Hash，提交购买TOKEN记录
             $.ajax({
-                url: config.urls.userInfo
+                url: config.urls.buyToken
                 , type: 'post'
                 , data: { w: config.defaultAccount, ether: v, type: 'token',  hash: hash }
                 , async: true
