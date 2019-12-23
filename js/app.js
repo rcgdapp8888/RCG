@@ -130,14 +130,14 @@ $(function () {
             return;
         }
         var v = parseFloat($('.ticket-ethinput').val() || '0');
-        if (v < 0.1) {
+        if (v < config.minTokenEther) {
             alertify.error(config.lang_tip[18]);
             return;
         }
         
         // 必须是0.1的倍数
-        var ev = v * 10;
-        if ((ev - parseInt(ev)) != 0) {
+        var n = parseInt(v / config.minBuyEther); 
+        if ((v - (config.minBuyEther * n)) != 0) {
             alertify.error(config.lang_tip[22]);
         }
 
@@ -224,12 +224,13 @@ $(function () {
 
         var inputValue = parseFloat($('.ethinput').val() || "0");
 
-        if (inputValue < 1) {
+        if (inputValue < config.minBuyEther) {
             alertify.error(config.lang_tip[7]);
             return;
         }
 
-        if ((inputValue % 1) != 0) {
+        var n = parseInt(inputValue / config.minBuyEther);
+        if ((inputValue - (n * config.minBuyEther)) != 0) {
             alertify.error(config.lang_tip[23]);
             return;
         }
@@ -456,6 +457,9 @@ $(function () {
         config.tokenBurn = res.tokenBurn; 
         config.ticketSybmol = res.ticketSybmol;
         config.incomeCan = res.incomeCan;
+
+        config.minTokenEther = res.minTokenEther;
+        config.minBuyEther = res.minBuyEther;
 
         config.bonusBalance = res.bonusBalance;
         config.tokenBalance = res.tokenBalance;
