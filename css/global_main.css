@@ -290,7 +290,7 @@
 
 .nav_style_01 .navbar-nav > .active > a {
   font-weight: bold; }
-  @media (min-width: 767px) {
+@media (min-width: 767px) {
     .nav_style_01 .navbar-nav > .active > a {
       position: relative;   }
       .nav_style_01 .navbar-nav > .active > a::after {
@@ -540,7 +540,8 @@
 }
 
 .cst_richtextList02 > ul li:before {
-  color: #FF9900; }
+    color: #ff8c00;
+}
 
 .headroom--not-top {
   background-color: #90f !important;
@@ -567,10 +568,11 @@
     .cst_tabs .nav-tabs li a:hover {
       background-color: #5576d2;
       color: darkorange; }
-  .cst_tabs .nav-tabs li.active a {
-    opacity: 1;
-    color: darkorange;
-    background-color: #3a5f71; }
+    .cst_tabs .nav-tabs li.active a {
+        opacity: 1;
+        color: darkorange;
+        background-color: #20252c;
+    }
     .cst_tabs .nav-tabs li.active a:hover, .cst_tabs .nav-tabs li.active a :focus {
       color: darkorange; }
 
