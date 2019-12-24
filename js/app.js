@@ -54,6 +54,15 @@ $(function () {
         $('#amount').val($(this).data("value"));
     });
 
+    // 倒计时
+    $('.cst_countdown').countDown({
+        with_separators: false,
+        label_dd: "Days",
+        label_hh: ":",
+        label_mm: ":",
+        label_ss: ""
+    });
+
     function gettip(code) { 
         code = code - 1000;
         if (code < config.lang_tip.length)
@@ -131,14 +140,15 @@ $(function () {
         }
         var v = parseFloat($('.ticket-ethinput').val() || '0');
         if (v < config.minTokenEther) {
-            alertify.error(config.lang_tip[18]);
+            alertify.error(config.lang_tip[18].format(config.minTokenEther));
             return;
         }
         
         // 必须是0.1的倍数
-        var n = parseInt(v / config.minBuyEther); 
-        if ((v - (config.minBuyEther * n)) != 0) {
-            alertify.error(config.lang_tip[22]);
+        var n = parseInt(v / config.minTokenEther); 
+        if ((v - (config.minTokenEther * n)) != 0) {
+            alertify.error(config.lang_tip[22].format(config.minTokenEther));
+            return;
         }
 
         var etherValue = web3.utils.toWei(
@@ -225,20 +235,20 @@ $(function () {
         var inputValue = parseFloat($('.ethinput').val() || "0");
 
         if (inputValue < config.minBuyEther) {
-            alertify.error(config.lang_tip[7]);
+            alertify.error(config.lang_tip[7].format(config.minBuyEther));
             return;
         }
 
         var n = parseInt(inputValue / config.minBuyEther);
         if ((inputValue - (n * config.minBuyEther)) != 0) {
-            alertify.error(config.lang_tip[23]);
+            alertify.error(config.lang_tip[23].format(config.minBuyEther));
             return;
         }
 
         // 检查令牌
         var needToken = inputValue * config.tokenBurn; 
         if (needToken > config.tokenBalance) {
-            alertify.error(config.lang_tip[11] + needToken + ' ');
+            alertify.error(config.lang_tip[11].format(needToken));
             return;
         }
 
