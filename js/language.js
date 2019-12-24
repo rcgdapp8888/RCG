@@ -29,7 +29,7 @@ var language_us = [
 /*27*/'Node sharing revenue',
 /*28*/'Revenue sharing',
 /*29*/'Next income countdown',
-/*30*/'-Income limit remains',
+/*30*/'Income limit remains',
 /*31*/'Unsettled income',
 /*32*/'Settle',
 /*33*/'Small prize pool',
