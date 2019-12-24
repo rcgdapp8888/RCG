@@ -458,15 +458,35 @@ $(function () {
         }
     }
 
+    var t3;
+    function refreshIncomeTimer(senconds) {
+        if (senconds > 0) {
+            if (t3) {
+                t3.clear();
+            }
+            t3 = new Tick(senconds, '.pext-incomenext');
+            t3.timer(t3);
+        } else {
+            $('.pext-incomenext').html('00:00:00');
+        }
+    };
+
+
     // 更新显示
     function updateUserInfo(res) {
 
         config.ticketSybmol = res.ticketSybmol
+
         config.rcgPrice = res.rcgPrice; 
         config.tokenPrice = res.tokenPrice;
         config.tokenBurn = res.tokenBurn; 
         config.ticketSybmol = res.ticketSybmol;
         config.incomeCan = res.incomeCan;
+
+        config.sharePool = res.sharePool;
+        config.insurancePool = res.insurancePool;
+        config.rcgPool = res.rcgPool;
+        config.totalJoinAmount = res.totalJoinAmount;
 
         config.minTokenEther = res.minTokenEther;
         config.minBuyEther = res.minBuyEther;
@@ -478,6 +498,7 @@ $(function () {
         config.walletAccount = res.walletAccount;
         
         updateReferee(res.refereeAccount);
+        refreshIncomeTimer(res.incomeSeconds);
 
         $('.pool-share').html(res.sharePool.toFixed(8));
         $('.pool-insurance').html(res.insurancePool.toFixed(8)); 
@@ -485,9 +506,16 @@ $(function () {
         $('.price-token').html(res.tokenPrice); 
         $('.burn-token').html(res.tokenBurn);
         $('.ticket-sybmol').html(res.ticketSybmol);
-        $('.token-balance').html(res.tokenBalance);
+        $('.token-balance').html(res.tokenBalance); 
 
+        $('.p-unwithdraw').html(res.bonusBalance);
         $('.pext-incomecan').html(res.incomeCan);
+
+        $('.b-pot').html(res.sharePool);
+        $('.s-bqp').html(res.insurancePool);
+        $('.s-pot').html(res.rcgPool);
+        $('.p-teth').html(res.totalJoinAmount);
+        
     }
 
     // 我的推荐人

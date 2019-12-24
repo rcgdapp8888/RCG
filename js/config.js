@@ -3,11 +3,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // 服务主机
-//const _apphost = 'localhost:1128';              // 本地 
-const _apphost = 'dnb.ltd';                     // 正式
+const _apphost = 'localhost:1128';              // 本地 
+//const _apphost = 'dnb.ltd';                     // 正式
 
-//const _http = 'http';                          // 协议
-const _http = 'https';                          // 协议
+const _http = 'http';                          // 协议
+//const _http = 'https';                          // 协议
 
 const _appServer = _http + '://' + _apphost;    // 
 
@@ -20,7 +20,12 @@ var config = {
     isNetworkInited: false,                     // 网络环境是否已初始化
     netCheck: false,                            // 网络检查是否通过
 
-    ticketSybmol: 'RCG',                         // 
+    ticketSybmol: 'RCG',                        // 
+
+    sharePool: 0,                               // 共享池
+    insurancePool: 0,                           // 保险池
+    rcgPool: 0,                                 // RCG 剩余总量
+    totalJoinAmountPool: 0,                     // 参与总量
 
     minTokenEther: 0.1,                         // 最小令牌起购量: ? ETH
     minBuyEther: 1,                             // 最小参与数量: ? ETH
