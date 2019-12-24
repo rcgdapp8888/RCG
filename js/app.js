@@ -516,6 +516,10 @@ $(function () {
         $('.s-pot').html(res.rcgPool);
         $('.p-teth').html(res.totalJoinAmount);
         
+        $('.b-1101').html(res.bonus1101);
+        $('.b-1102').html(res.bonus1102);
+        $('.b-1103').html(res.bonus1103);
+        $('.b-1104').html(res.bonus1104);
     }
 
     // 我的推荐人
