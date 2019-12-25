@@ -77,11 +77,11 @@
         margin-bottom: 5px;
         color: #dedede;
         font-size: 30px;
-        background-image: url(../images/zs.png);
+        /*background-image: url(../images/zs.png);
         background-size: 80%;
         background-repeat: no-repeat;
         background-position-x: 50%;
-        background-position-y: 50%;
+        background-position-y: 50%;*/
     }
     .cbhead_45f59816{line-height:1.3em;margin-top:0px;font-family:Caudex;padding-left:2px;padding-right:2px;}
     .cbpara_e865ad31{line-height:1.7em;opacity:0.8;font-family:-apple-system-font,'Helvetica Neue',Helvetica,sans-serif;padding-left:2px;padding-right:2px;text-align:left;}
@@ -704,8 +704,8 @@
     .S_cbdiv_99ea0413{position:absolute;z-index:0;bottom:0;right:0;top:0;left:0;}
     .S_cbdiv_1659ac1a{position:relative;bottom:0px;right:0px;top:0px;left:0px;background-size:cover;background-position:center;height:100%;}
     .S_cbdiv_6d7fb641{height:100%;/* color: rgb(255, 0, 255);
-          background-color: rgb(26, 87, 166); */background-image:linear-gradient(140deg,#39465a,#251a15);opacity:0.6;z-index:0;bottom:0px;right:0px;top:0px;left:0px;background:rgba(0,0,0,.5);}
-      .S_cbcont_03c5f90e{padding-top:0px;padding-bottom:0px;background-color:rgba(0,0,0,.4);min-height:20px;}
+          background-color: rgb(26, 87, 166); */background-image:linear-gradient(140deg,#39465a,#251a15);/*opacity:0.6*/;z-index:0;bottom:0px;right:0px;top:0px;left:0px;background:rgba(0,0,0,.6);}
+      .S_cbcont_03c5f90e{padding-top:0px;padding-bottom:0px;/*background-color:rgba(0,0,0,.4);*/min-height:20px;}
       .S_cbdiv_2a7ca953{display:flex;align-items:center;background-color:rgba(0,0,0,0);color:rgb(217,217,217);min-height:20px;margin-bottom:30px;}
       .S_cb_oth_425a6ac8{flex:1 1 0%;margin-right:20px;margin-left:10px;border-top-color:currentcolor!important;}
       .S_cbdiv_a0144aac{min-height:0px;text-align:center;color:white;flex:0 0 auto;max-width:60%;}
@@ -728,7 +728,7 @@
         font-family: Source-Han-Light;
         margin-bottom: 5px;
         background-image: url('../images/zs.png');
-        background-size: 50%;
+        background-size: 60%;
         background-repeat: no-repeat;
         background-position-x: 50%;
         background-position-y: 50%;
@@ -1272,3 +1272,12 @@
     margin-top: 15px;
     font-size: 16px;
 }
+/*.game-ab {
+    width: 107%;
+    height: 6.6rem;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    top: -99px;
+    margin: 0;
+    padding: 0;
+}*/
